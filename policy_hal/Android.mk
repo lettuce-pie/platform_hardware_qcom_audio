@@ -11,7 +11,6 @@
 # production of derivative works therefrom without the express permission of
 # the copyright owners is prohibited.
 #
-ifneq ($(USE_LEGACY_AUDIO_POLICY), 1)
 ifeq ($(USE_CUSTOM_AUDIO_POLICY), 1)
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
@@ -90,5 +89,4 @@ LOCAL_MODULE := libaudiopolicymanager
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
 endif
