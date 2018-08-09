@@ -1301,7 +1301,7 @@ status_t AudioPolicyManagerCustom::getOutputForAttr(const audio_attributes_t *at
 
     return AudioPolicyManager::getOutputForAttr(attr, output, session, stream,
                                                 (uid_t)uid, &tConfig,
-                                                flags, selectedDeviceId,
+                                                &flags, selectedDeviceId,
                                                 portId);
 }
 
@@ -1992,7 +1992,7 @@ status_t AudioPolicyManagerCustom::startInput(audio_io_handle_t input,
     }
 #endif
 
-    if (!inputDesc->isActive() || mInputRoutes.hasRouteChanged(session)) {
+    if (!inputDesc->isActive() || mInputRoutes.getAndClearRouteChanged(session)) {
         // if input maps to a dynamic policy with an activity listener, notify of state change
         if ((inputDesc->mPolicyMix != NULL)
                 && ((inputDesc->mPolicyMix->mCbFlags & AudioMix::kCbFlagNotifyActivity) != 0)) {
