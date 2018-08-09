@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 #                 Common definitons
 # ---------------------------------------------------------------------------------
 
-libOmxAacEnc-def := -g -O3
+libOmxAacEnc-def := -g -O3 -Wno-error
 libOmxAacEnc-def += -DQC_MODIFIED
 libOmxAacEnc-def += -D_ANDROID_
 libOmxAacEnc-def += -D_ENABLE_QC_MSG_LOG_

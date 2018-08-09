@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 #                 Common definitons
 # ---------------------------------------------------------------------------------
 
-libOmxQcelp13Enc-def := -g -O3
+libOmxQcelp13Enc-def := -g -O3 -Wno-error
 libOmxQcelp13Enc-def += -DQC_MODIFIED
 libOmxQcelp13Enc-def += -D_ANDROID_
 libOmxQcelp13Enc-def += -D_ENABLE_QC_MSG_LOG_

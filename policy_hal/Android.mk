@@ -17,6 +17,8 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := AudioPolicyManager.cpp
 
+LOCAL_CFLAGS += -Wno-error
+
 LOCAL_C_INCLUDES := $(TOPDIR)frameworks/av/services \
                     $(TOPDIR)frameworks/av/services/audioflinger \
                     $(call include-path-for, audio-effects) \

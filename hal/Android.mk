@@ -6,7 +6,7 @@ include $(CLEAR_VARS)
 
 LOCAL_ARM_MODE := arm
 
-LOCAL_CFLAGS := -Wno-error -Wno-sign-compare
+LOCAL_CFLAGS := -Wno-error -Wno-sign-compare -Wno-format
 
 AUDIO_PLATFORM := $(TARGET_BOARD_PLATFORM)
 
@@ -54,7 +54,7 @@ LOCAL_SRC_FILES += audio_extn/audio_extn.c \
                    audio_extn/utils.c
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
-LOCAL_CFLAGS += -DUSE_VENDOR_EXTN
+LOCAL_CFLAGS += -DUSE_VENDOR_EXTN -Wno-error -Wno-format
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_HDMI_EDID)),true)
     LOCAL_SRC_FILES += edid.c
@@ -300,8 +300,6 @@ ifneq ($(strip $(AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER)),false)
     LOCAL_CFLAGS += -DEXT_AMPLIFIER_ENABLED
     LOCAL_SRC_FILES += audio_extn/audio_amplifier.c
 endif
-
-LOCAL_CFLAGS += -Wall -Wno-unused-parameter
 
 LOCAL_COPY_HEADERS_TO   := mm-audio
 LOCAL_COPY_HEADERS      := audio_extn/audio_defs.h
